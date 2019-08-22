@@ -4,10 +4,22 @@ export default class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.name = props.name || 'Name';
-    this.state = {value:''};
+    this.ws = new WebSocket(`ws://localhost:3000`);
+    this.state = {
+      value:'',
+      wsMsg:null,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleResponse = this.handleResponse.bind(this);
+  }
+  componentDidMount() {
+
+  }
+
+  handleResponse(e) {
+
   }
 
   handleChange(e) {
@@ -15,9 +27,10 @@ export default class LoginForm extends Component {
   }
 
   handleSubmit(e) {
-    alert(`A ${this.name} has been submitted as ${this.state.value}`)
-    e.preventDefault();
-  }
+      console.log(this.state.value);
+      this.ws.send(this.state.value);
+      e.preventDefault();
+  };
 
   render() {
     return (
