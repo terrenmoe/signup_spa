@@ -12,7 +12,7 @@ function SignUpForm({ onEntry, onSubmit, children }) {
   return (
     <form className='SignUpForm' onSubmit={onSubmit}>
       {children}
-      <button onClick={onEntry}>Enter</button>
+      <button className='Button' onClick={onEntry}>Enter</button>
     </form>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'propTypes';
+import { string } from 'prop-types';
 
 LabeledInput.propTypes = {
   name: string.isRequired,
@@ -14,7 +14,7 @@ LabeledInput.defaultProps= {
   placeholder: '→ Enter text here ←',
 }
 
-function LabeledInput({ name, type, value, placeholder }) {
+export default function LabeledInput({ name, type, value, placeholder }) {
   return (
     <div>
       <label className='Label' for={name}>{`${name}: `}</label>
@@ -23,7 +23,7 @@ function LabeledInput({ name, type, value, placeholder }) {
         name={name}
         id={name}
         type={type}
-        value={value}
+        defaultValue={value}
         placeholder={placeholder}
       />
     </div>
